@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding= "UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <mappers>
+        <mapper resource ="/mybatis/data-mapper.xml"/>
+        
+        <!-- On rajoute le chemin de notre mapping dans le fichier de configuration mybatis -->
+        <mapper resource ="/mybatis/login-mapper.xml"/>
+    </mappers>
+</configuration>

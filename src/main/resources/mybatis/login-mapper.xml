@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding= "UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="login-mapper">	<!-- On generera automatiquement l'id -->
+	
+	<insert id="inserrerUtilisateur" 
+			useGeneratedKeys="true" 
+			keyProperty="id"
+			parameterType="me.samuelsimon.springmvc_tutorial.simplemvc.Utilisateur">
+	insert into utilisateur (nom, prenom, email, login, mdp)
+	values (#{nom}, #{prenom}, #{email}, #{login}, #{mdp})
+	</insert>
+	
+	<update id="modifierUtilisateur"
+			parameterType="me.samuelsimon.springmvc_tutorial.simplemvc.Utilisateur">
+	update utilisateur set
+		nom 	= #{nom},
+		prenom 	= #{prenom},
+		email 	= #{email},
+		login 	= #{login}
+	where id  	= #{id}
+	</update>
+	
+	<delete id="supprimerUtilisateur"
+			parameterType="me.samuelsimon.springmvc_tutorial.simplemvc.Utilisateur">
+	delete from utilisateur
+	where id = #{id}
+	</delete>
+	
+	<select id="listerUtilisateurs"
+			resultType="me.samuelsimon.springmvc_tutorial.simplemvc.Utilisateur">
+			select * 
+			from utilisateur
+			order by nom asc
+	
+	</select>
+	
+	<select id="recupererUtilisateur"
+			resultType="me.samuelsimon.springmvc_tutorial.simplemvc.Utilisateur">
+			select * 
+			from utilisateur
+			where id=#{id}
+	</select>
+	
+</mapper>
