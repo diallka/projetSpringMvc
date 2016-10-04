@@ -2,6 +2,8 @@ package me.samuelsimon.springmvc_tutorial.simplemvc;
 
 import java.util.List;
 
+import javax.annotation.Generated;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class PagesController {
-	// Add SQL session member
+	// Injecter SqlSession Mybatis
 	@Autowired
 	private SqlSession m_SqlSession;
 
@@ -22,6 +24,7 @@ public class PagesController {
 	//@RequestMapping(value = {"/", "/list"}, method = RequestMethod.GET)
 	// RequestMapping value accepts a list, use that if a controller needs multiple request map
 	@RequestMapping(value = {"/", "/list"}, method = RequestMethod.GET)
+	
 	public String list(Model p_Model) {
 		// Call MyBatis mapper to get data from DB
 		List<MyData> t_QueryResult = m_SqlSession.selectList("data-mapper.selectAllPeople");
@@ -94,7 +97,7 @@ public class PagesController {
 		return "espace_personnel";
 	}
 	
-	@RequestMapping(value = {"/inscription", "/modifier"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/modifier"}, method = RequestMethod.GET)
 	public String recupererUtiliateur(@RequestParam(value="id", required=false) Integer idUtilisateur, Model m) {		
 		// Check whether this is an add or edit request 
 		Utilisateur donneesUtil;
@@ -114,6 +117,12 @@ public class PagesController {
 	@RequestMapping(value="/modifier", method = RequestMethod.POST)
 	public String modifierUtilisateur(@ModelAttribute("ed") Utilisateur util, Model m){
 		m_SqlSession.update("login-mapper.modifierUtilisateur", util);
+		return "redirect:/espace_personnel";
+	}
+	@RequestMapping(value = "/supprimer/{idUtilisateur}")
+	public String supprimerUtilisateur(@PathVariable("idUtilisateur") Integer idUtilisateur) {
+		m_SqlSession.delete("login-mapper.supprimerUtilisateur", idUtilisateur);
+
 		return "redirect:/espace_personnel";
 	}
 	//Inscription *********************************************************

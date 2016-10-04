@@ -19,6 +19,7 @@
 					<td> ${util.prenom}</td>
 					<td> ${util.email}</td>
 					<td><a href="${pageContext.request.contextPath}/modifier?id=${util.id}">Modifier</a></td>
+					<td><a href="${pageContext.request.contextPath}/supprimer/${util.id}">Supprimer</a></td>
 				</tr>
 			</table>
 		</c:forEach>

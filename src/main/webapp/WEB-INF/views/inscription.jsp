@@ -9,8 +9,9 @@
 </head>
 <body>
 	<h3>Inscription nouvel utilisateur</h3>
-
-	<form:form method="post" action="${pageContext.request.contextPath}/${lienSenregistrer}" modelAttribute="util">
+	
+							<!-- action="${pageContext.request.contextPath}/${lienSenregistrer}"  -->
+	<form:form method="post" modelAttribute="util">
 		<table>
 			<tr>
 				<!-- path "id", valeur recuperée du modelAttribute -->

@@ -32,7 +32,7 @@
 	
 	<select id="listerUtilisateurs"
 			resultType="me.samuelsimon.springmvc_tutorial.simplemvc.Utilisateur">
-			select * 
+			select *
 			from utilisateur
 			order by nom asc
 	
