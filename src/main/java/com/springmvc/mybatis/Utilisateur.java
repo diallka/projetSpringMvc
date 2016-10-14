@@ -1,4 +1,4 @@
-package me.samuelsimon.springmvc_tutorial.simplemvc;
+package com.springmvc.mybatis;
 
 public class Utilisateur {
 	

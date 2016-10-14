@@ -175,6 +175,7 @@
             </plugin>
         </plugins>
     </build>
+   
     <organization>
     	<name>Samuel Simon</name>
     	<url>samuelsimon.me</url>

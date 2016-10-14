@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="me.samuelsimon.simplemvc">
+	<logger name="com.springmvc.mybatis">
 		<level value="info" />
 	</logger>
 	

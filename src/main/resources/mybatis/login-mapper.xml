@@ -9,13 +9,13 @@
 	<insert id="inserrerUtilisateur" 
 			useGeneratedKeys="true" 
 			keyProperty="id"
-			parameterType="me.samuelsimon.springmvc_tutorial.simplemvc.Utilisateur">
+			parameterType="com.springmvc.mybatis.Utilisateur">
 	insert into utilisateur (nom, prenom, email, login, mdp)
 	values (#{nom}, #{prenom}, #{email}, #{login}, #{mdp})
 	</insert>
 	
 	<update id="modifierUtilisateur"
-			parameterType="me.samuelsimon.springmvc_tutorial.simplemvc.Utilisateur">
+			parameterType="com.springmvc.mybatis.Utilisateur">
 	update utilisateur set
 		nom 	= #{nom},
 		prenom 	= #{prenom},
@@ -25,13 +25,13 @@
 	</update>
 	
 	<delete id="supprimerUtilisateur"
-			parameterType="me.samuelsimon.springmvc_tutorial.simplemvc.Utilisateur">
+			parameterType="com.springmvc.mybatis.Utilisateur">
 	delete from utilisateur
 	where id = #{id}
 	</delete>
 	
 	<select id="listerUtilisateurs"
-			resultType="me.samuelsimon.springmvc_tutorial.simplemvc.Utilisateur">
+			resultType="com.springmvc.mybatis.Utilisateur">
 			select *
 			from utilisateur
 			order by nom asc
@@ -39,7 +39,7 @@
 	</select>
 	
 	<select id="recupererUtilisateur"
-			resultType="me.samuelsimon.springmvc_tutorial.simplemvc.Utilisateur">
+			resultType="com.springmvc.mybatis.Utilisateur">
 			select * 
 			from utilisateur
 			where id=#{id}
